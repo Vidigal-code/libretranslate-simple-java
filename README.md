@@ -3,7 +3,7 @@
 A lightweight, configurable client for interacting with LibreTranslate's machine translation service.  
 **JDK 17+ required**  
 
-advanced version: https://github.com/Vidigal-code/libretranslate-java
+advanced-version: https://github.com/Vidigal-code/libretranslate-java
 
 ---
 
