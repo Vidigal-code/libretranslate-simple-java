@@ -139,5 +139,4 @@ See the [LICENSE](https://github.com/LibreTranslate/LibreTranslate/blob/main/LIC
 - [LibreTranslate API Documentation](https://libretranslate.com/docs)
 - [LibreTranslate API GitHub](https://github.com/LibreTranslate/LibreTranslate)
 
----
 
