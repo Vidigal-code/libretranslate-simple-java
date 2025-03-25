@@ -1,4 +1,4 @@
-package com.vidigal.code.libretranslate.service;
+package com.vidigal.code.libretranslate.response;
 
 import java.util.List;
 import java.util.Map;
