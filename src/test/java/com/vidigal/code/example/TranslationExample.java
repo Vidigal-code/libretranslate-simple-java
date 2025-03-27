@@ -4,10 +4,6 @@ import com.vidigal.code.libretranslate.client.LibreTranslateClient;
 import com.vidigal.code.libretranslate.service.TranslatorService;
 import com.vidigal.code.libretranslate.config.LibreTranslateConfig;
 
-import java.util.Arrays;
-import java.util.List;
-import java.util.concurrent.CompletableFuture;
-
 /**
  * Example of how to use the LibreTranslate client.
  * This class demonstrates synchronous and asynchronous translations,
