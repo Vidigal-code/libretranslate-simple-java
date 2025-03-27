@@ -3,8 +3,8 @@ package com.vidigal.code.libretranslate.client;
 import com.vidigal.code.libretranslate.config.LibreTranslateConfig;
 import com.vidigal.code.libretranslate.exception.TranslationException;
 import com.vidigal.code.libretranslate.language.Language;
-import com.vidigal.code.libretranslate.response.HttpResponse;
-import com.vidigal.code.libretranslate.response.RequestHelper;
+import com.vidigal.code.libretranslate.http.HttpResponse;
+import com.vidigal.code.libretranslate.http.RequestHelper;
 import com.vidigal.code.libretranslate.service.TranslatorService;
 import com.vidigal.code.libretranslate.util.JsonUtil;
 
@@ -76,8 +76,8 @@ public class LibreTranslateClient implements TranslatorService {
 
         try {
             Map<String, String> params = createTranslationParams(text, sourceLanguage, targetLanguage);
-            HttpResponse response = requestHelper.sendHttpRequest(config.getApiUrl(), "POST", params);
-            return handleTranslationResponse(response.getBody());
+            var response = requestHelper.sendHttpRequest(config.getApiUrl(), "POST", params);
+            return handleTranslationResponse(response.body());
         } catch (Exception e) {
             throw new TranslationException("Translation failed", e);
         }

@@ -47,7 +47,7 @@ public class TranslatorServiceTest  {
         // Attempt translation with an unsupported target language (xx)
         String result = translatorService.translate("Hello world", "xx");
         assertNotNull(result); // Ensure that the result is not null
-        System.out.println(Ansi.ansi().fg(Ansi.Color.GREEN).a(MESSAGE_PASSED + " Translation to unsupported language returned a result.").reset());
+        System.out.println(Ansi.ansi().fg(Ansi.Color.GREEN).a(MESSAGE_PASSED + " Translation to multiple unsupported languages returned a result.").reset());
     }
 
     /**
