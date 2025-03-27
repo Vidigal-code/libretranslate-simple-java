@@ -3,7 +3,6 @@ package com.vidigal.code.libretranslate.client;
 import com.vidigal.code.libretranslate.config.LibreTranslateConfig;
 import com.vidigal.code.libretranslate.exception.TranslationException;
 import com.vidigal.code.libretranslate.language.Language;
-import com.vidigal.code.libretranslate.http.HttpResponse;
 import com.vidigal.code.libretranslate.http.RequestHelper;
 import com.vidigal.code.libretranslate.service.TranslatorService;
 import com.vidigal.code.libretranslate.util.JsonUtil;
