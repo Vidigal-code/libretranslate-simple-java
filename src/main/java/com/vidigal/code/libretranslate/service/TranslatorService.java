@@ -9,6 +9,7 @@ import com.vidigal.code.libretranslate.config.LibreTranslateConfig;
  * This interface defines the contract for interacting with a translation service, such as LibreTranslate.
  * It provides methods for translating text synchronously and asynchronously, testing the connection to the service,
  * and processing commands in bulk.
+ *
  * @author Kauan Vidigal
  */
 public interface TranslatorService {

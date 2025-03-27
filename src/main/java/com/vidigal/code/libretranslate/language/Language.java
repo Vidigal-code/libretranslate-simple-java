@@ -6,6 +6,7 @@ import java.util.concurrent.ConcurrentHashMap;
 /**
  * Enumeration representing the supported languages for translation.
  * This enum provides methods to validate and manage language codes.
+ *
  * @author Kauan Vidigal
  */
 public enum Language {

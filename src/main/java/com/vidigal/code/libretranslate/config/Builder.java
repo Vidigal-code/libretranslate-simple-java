@@ -3,6 +3,7 @@ package com.vidigal.code.libretranslate.config;
 /**
  * Builder for creating LibreTranslateConfig instances.
  * Allows configuring parameters in a fluent way.
+ *
  * @author Kauan Vidigal
  */
 public class Builder {

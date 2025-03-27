@@ -7,20 +7,21 @@ import com.vidigal.code.libretranslate.language.Language;
 import com.vidigal.code.libretranslate.service.TranslatorService;
 import com.vidigal.code.libretranslate.util.JsonUtil;
 
-import java.util.*;
+import java.util.HashMap;
+import java.util.Map;
 import java.util.logging.Logger;
 
 /**
  * Client implementation for the LibreTranslate API providing text translation services.
  * <p>This client implements the {@link TranslatorService} interface and manages resources
+ *
  * @author Kauan Vidigal
  */
 public class LibreTranslateClient implements TranslatorService {
 
-    private static final Logger LOGGER = Logger.getLogger(LibreTranslateClient.class.getName());
-
     // Constants
     public static final String DEFAULT_SOURCE_LANGUAGE = Language.AUTO.getCode();
+    private static final Logger LOGGER = Logger.getLogger(LibreTranslateClient.class.getName());
     private static final String FORMAT_TEXT = "text";
 
     // Configuration

@@ -2,6 +2,7 @@ package com.vidigal.code.libretranslate.exception;
 
 /**
  * Base exception for all translation-related errors.
+ *
  * @author Kauan Vidigal
  */
 public class TranslationException extends RuntimeException {

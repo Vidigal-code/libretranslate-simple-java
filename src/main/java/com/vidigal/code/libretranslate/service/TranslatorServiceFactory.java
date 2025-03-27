@@ -10,6 +10,7 @@ import java.net.URL;
 
 /**
  * Factory for creating TranslatorService instances and testing API connections.
+ *
  * @author Kauan Vidigal
  */
 public class TranslatorServiceFactory {
