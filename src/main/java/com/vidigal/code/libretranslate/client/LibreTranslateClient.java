@@ -2,8 +2,8 @@ package com.vidigal.code.libretranslate.client;
 
 import com.vidigal.code.libretranslate.config.LibreTranslateConfig;
 import com.vidigal.code.libretranslate.exception.TranslationException;
+import com.vidigal.code.libretranslate.http.HttpRequestHandler;
 import com.vidigal.code.libretranslate.language.Language;
-import com.vidigal.code.libretranslate.http.RequestHelper;
 import com.vidigal.code.libretranslate.service.TranslatorService;
 import com.vidigal.code.libretranslate.util.JsonUtil;
 
@@ -25,7 +25,7 @@ public class LibreTranslateClient implements TranslatorService {
 
     // Configuration
     private final LibreTranslateConfig config;
-    private final RequestHelper requestHelper;
+    private final HttpRequestHandler httpRequestHandler;
 
     /**
      * Constructs a new simplified LibreTranslate client with the specified configuration.
@@ -38,7 +38,7 @@ public class LibreTranslateClient implements TranslatorService {
             throw new TranslationException("Configuration cannot be null");
         }
         this.config = config;
-        this.requestHelper = new RequestHelper(config);
+        this.httpRequestHandler = new HttpRequestHandler(config);
     }
 
     /**
@@ -75,8 +75,8 @@ public class LibreTranslateClient implements TranslatorService {
 
         try {
             Map<String, String> params = createTranslationParams(text, sourceLanguage, targetLanguage);
-            var response = requestHelper.sendHttpRequest(config.getApiUrl(), "POST", params);
-            return handleTranslationResponse(response.body());
+            var response = httpRequestHandler.sendHttpRequest(config.getApiUrl(), "POST", params);
+            return handleTranslationResponse(response.getBody());
         } catch (Exception e) {
             throw new TranslationException("Translation failed", e);
         }
