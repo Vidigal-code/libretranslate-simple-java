@@ -50,6 +50,10 @@ public class HttpRequestHandler {
     public HttpResponse sendHttpRequest(String url, String method, Map<String, String> params) throws TranslationException {
         int maxRetries = config.getMaxRetries();
         int attempt = 0;
+
+       /* LOGGER.info("Max retries allowed: {}", maxRetries);
+        LOGGER.info("Starting attempt: {}", attempt);*/
+
         while (true) {
             HttpURLConnection connection = null;
             long startTime = System.currentTimeMillis();
@@ -85,20 +89,25 @@ public class HttpRequestHandler {
      * @return Configured HttpURLConnection
      * @throws IOException If an I/O error occurs
      */
-    private HttpURLConnection setupConnection(String url, String method) throws IOException {
+    public HttpURLConnection setupConnection(String url, String method) throws IOException {
+
         HttpURLConnection connection = (HttpURLConnection) new URL(url).openConnection();
         connection.setRequestMethod(method);
         connection.setDoOutput("POST".equals(method));
-        connection.setConnectTimeout(config.getTimeout());
-        connection.setReadTimeout(config.getReadTimeout());
 
-        // Set common headers
+        int connectTimeout = config.getTimeout();
+        int readTimeout = config.getReadTimeout();
+
+        //LOGGER.info("Setting connectTimeout: {} and readTimeout: {}", connectTimeout, readTimeout);
+        connection.setConnectTimeout(connectTimeout);
+        connection.setReadTimeout(readTimeout);
         connection.setRequestProperty("Content-Type", DEFAULT_CONTENT_TYPE);
         connection.setRequestProperty("Accept", "application/json");
         connection.setRequestProperty("User-Agent", "LibreTranslateJava/1.0");
 
         return connection;
     }
+
 
     /**
      * Writes the request parameters to the connection output stream.

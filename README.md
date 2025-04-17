@@ -63,14 +63,15 @@ try {
 }  
 ```  
 
-## Technical Specifications
-| Parameter      | Description                         | Default Value |  
-|----------------|-------------------------------------|---------------|  
-| `apiUrl`       | LibreTranslate API endpoint         | Required      |  
-| `apiKey`       | Authentication key (if required)    | Required      |  
-| `read timeout` | socket read timeout (ms)            | 5000          |
-| `timeout`      | Connection timeout (ms)             | 5000          |  
-| `maxRetries`   | Max retry attempts for failed calls | 3             |  
+
+### **Technical Specifications**
+| Parameter      | Description                                | Default Value | Acceptable Limit  |
+|----------------|--------------------------------------------|---------------|-------------------|
+| `apiUrl`       | LibreTranslate API endpoint                | Required      | Required          |
+| `apiKey`       | Authentication key (if needed)            | Required      | Required          |
+| `read timeout` | Socket read timeout (ms)                  | 5000          | 3000 - 10000      |
+| `timeout`      | Connection timeout (ms)                   | 5000          | 2000 - 5000       |
+| `maxRetries`   | Maximum retry attempts for failed calls   | 3             | 1 - 5             |
 
 ---
 

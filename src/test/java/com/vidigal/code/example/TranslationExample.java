@@ -41,9 +41,9 @@ public class TranslationExample {
         LibreTranslateConfig config = LibreTranslateConfig.builder()
                 .apiUrl(API)
                 .apiKey(KEY)
-                .readtimeout(1000)
-                .timeout(1000)
-                .maxRetries(3)
+                .readtimeout(10000)
+                .timeout(5000)
+                .maxRetries(4)
                 .build();
 
         // Create an instance of LibreTranslateClient

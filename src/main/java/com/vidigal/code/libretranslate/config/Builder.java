@@ -1,5 +1,8 @@
 package com.vidigal.code.libretranslate.config;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
 /**
  * Builder for creating LibreTranslateConfig instances.
  * Allows configuring parameters in a fluent way.
@@ -7,6 +10,8 @@ package com.vidigal.code.libretranslate.config;
  * @author Kauan Vidigal
  */
 public class Builder {
+
+    private static final Logger LOGGER = LoggerFactory.getLogger(Builder.class);
 
     private String apiUrl = "";
     private String apiKey = "";
@@ -44,7 +49,14 @@ public class Builder {
      * @return This builder for method chaining
      */
     public Builder readtimeout(int readtimeout) {
-        this.readtimeout = readtimeout;
+        if (readtimeout < 3000 || readtimeout > 10000) {
+            LOGGER.warn("Invalid read timeout value provided: " + readtimeout + "ms");
+            LOGGER.warn("Read timeout is out of acceptable range. Reverting to default: "
+                    + LibreTranslateConfig.DEFAULT_READ_TIMEOUT + "ms");
+            this.readtimeout = LibreTranslateConfig.DEFAULT_READ_TIMEOUT;
+        } else {
+            this.readtimeout = readtimeout;
+        }
         return this;
     }
 
@@ -55,9 +67,17 @@ public class Builder {
      * @return This builder for method chaining
      */
     public Builder timeout(int timeout) {
-        this.timeout = timeout;
+        if (timeout < 2000 || timeout > 5000) {
+            LOGGER.warn("Invalid connection timeout value provided: " + timeout + "ms");
+            LOGGER.warn("Connection timeout is out of acceptable range. Reverting to default: "
+                    + LibreTranslateConfig.DEFAULT_TIMEOUT + "ms");
+            this.timeout = LibreTranslateConfig.DEFAULT_TIMEOUT;
+        } else {
+            this.timeout = timeout;
+        }
         return this;
     }
+
 
     /**
      * Sets the maximum number of reconnection attempts.
@@ -66,9 +86,16 @@ public class Builder {
      * @return This builder for method chaining
      */
     public Builder maxRetries(int maxRetries) {
-        this.maxRetries = maxRetries;
+        if (maxRetries > 5) {
+            LOGGER.warn("Invalid maxRetries value provided: " + maxRetries);
+            LOGGER.warn("Maximum retry attempts exceeded allowed limit. Reverting to default: 3");
+            this.maxRetries = 3;
+        } else {
+            this.maxRetries = maxRetries;
+        }
         return this;
     }
+
 
     /**
      * Gets the configured API URL.
