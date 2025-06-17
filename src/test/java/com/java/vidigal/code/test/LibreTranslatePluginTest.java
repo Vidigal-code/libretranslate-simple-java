@@ -5,7 +5,6 @@ import com.java.vidigal.code.client.LibreTranslateClient;
 import com.java.vidigal.code.client.LibreTranslateClientImpl;
 import com.java.vidigal.code.exception.LibreTranslateException;
 import com.java.vidigal.code.language.LanguageRegistry;
-import com.java.vidigal.code.utilities.cache.TranslationCache;
 import com.java.vidigal.code.utilities.config.LibreTranslateConfig;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
