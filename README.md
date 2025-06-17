@@ -276,7 +276,6 @@ LibreTranslateConfig config = LibreTranslateConfig.builder()
     .maxRequestsPerSecond(10)
     .maxRetries(3)
     .enableRetry(true)
-    .enableCache(true)
     .cacheTtlMillis(3_600_000) // 1 hour
     .build();
 
@@ -357,7 +356,7 @@ Contributions are welcome! Please submit issues or pull requests to the project 
 ## License
 
 This library is licensed under the MIT License.
-See the [LICENSE](https://) file for more details.
+See the [LICENSE](https://github.com/Vidigal-code/libretranslate-simple-java/blob/main/License.mit) file for more details.
 
 ---
 
